@@ -143,8 +143,4 @@ To make testing the application extremely easy, the database seeding script auto
 *   **Password**: `admin123`
 *   **Role**: Admin (Grants access to the **Admin Panel** link in the navigation bar for product CRUD)
 
----
 
-## 🛠️ Quick Start
-
-Please check [DEPLOYMENT_GUIDE.md](file:///c:/Users/dhruv/OneDrive/Desktop/codealpha/task1/DEPLOYMENT_GUIDE.md) for database connection keys, env configurations, local launch commands, and step-by-step details for Render & Netlify deployment!
