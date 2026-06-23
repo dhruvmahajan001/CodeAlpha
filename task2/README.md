@@ -97,55 +97,6 @@ task2
 
 ---
 
-## Deployment Guide: Render (Backend)
-
-Render is an excellent platform for deploying Node.js/Express web services.
-
-1.  **Push Code to GitHub**: Create a repository on GitHub and push your ConnectHub project code to it.
-2.  **Create a New Web Service**:
-    *   Sign in to your [Render Dashboard](https://dashboard.render.com).
-    *   Click **New +** and select **Web Service**.
-    *   Connect your GitHub repository.
-3.  **Configure Web Service Parameters**:
-    *   **Name**: `connecthub-backend` (or a name of your choice).
-    *   **Root Directory**: `backend` (Ensure Render is looking inside the `backend` folder).
-    *   **Runtime**: `Node`.
-    *   **Build Command**: `npm install`.
-    *   **Start Command**: `npm start` (which executes `node server.js`).
-4.  **Configure Environment Variables**:
-    *   Scroll down to the **Environment Variables** section (or click the **Env Groups** tab).
-    *   Add the following variables:
-        *   `MONGODB_URI`: `your_mongodb_connection_string`
-        *   `JWT_SECRET`: `your_random_secure_jwt_token_secret`
-        *   `NODE_ENV`: `production`
-5.  **Deploy**: Click **Deploy Web Service**. Once the build succeeds, copy the provided Web Service URL (e.g., `https://connecthub-backend.onrender.com`).
-
----
-
-## Deployment Guide: Netlify (Frontend)
-
-Netlify is the ideal hosting solution for static web pages.
-
-1.  **Configure API URL for Production**:
-    *   Open `frontend/js/config.js` in your codebase.
-    *   Replace the fallback URL under `API_URL` with your **live Render backend web service URL** copied from Render:
-        ```javascript
-        API_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-          ? 'http://localhost:5000/api'
-          : 'https://YOUR-RENDER-APP-NAME.onrender.com/api',
-        ```
-    *   Commit and push this change to GitHub.
-2.  **Deploy via Netlify Dashboard**:
-    *   Log in to your [Netlify Dashboard](https://app.netlify.com).
-    *   Click **Add new site** -> **Import an existing project**.
-    *   Connect to your Git provider (GitHub) and select your project repository.
-3.  **Build & Deploy Settings**:
-    *   **Base directory**: `frontend` (Ensure Netlify deploys only files inside the `frontend` folder).
-    *   **Build command**: *(Leave blank)*.
-    *   **Publish directory**: `.` (Since base directory is already set to `frontend`, this points to the root of the frontend folder).
-4.  **Deploy**: Click **Deploy Site**. Netlify will build and host your ConnectHub frontend, supplying a live link (e.g., `https://your-site-name.netlify.app`) to access the social media web app.
-
----
 
 ## Premium Features Added
 *   **Theme Toggle**: Fully responsive Dark Mode using CSS styling variables.
